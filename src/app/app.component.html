@@ -1,0 +1,97 @@
+<div [ngSwitch]="theme">
+   <!-- style="background-color:#9833c0;" -->
+  <nav class="navbar navbar-light bg-warning" >
+    <div class="container-fluid">
+      <a class="navbar-brand" ><h3>CRUD Demo</h3></a>
+    </div>
+  </nav>
+<div class="float-end">
+  <button *ngIf="authService.isLoggedIn()" class="btn btn-danger" (click)="authService.logout()">Logout</button>
+</div>
+  
+
+<!-- <div [ngSwitch]="theme">
+  <nav *ngSwitchCase = "'0'" class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" ><h3>CRUD Demo</h3></a>
+  </div>
+</nav>
+<nav *ngSwitchCase ="'1'"class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" >CRUD Demo</a>
+  </div>
+</nav>
+<nav *ngSwitchCase = "'2'" class="navbar navbar-light bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand">CRUD Demo</a>
+  </div>
+</nav>
+</div> --> 
+
+
+<select class="position-absolute top-0 end-0 "[(ngModel)]="theme" >
+ 
+  <option value=0>Light</option>
+  <option value=1>Blue</option>
+  <option value=2>Orange</option>
+
+  </select>
+&nbsp;
+
+  <!-- <button class="btn btn-success float-end"(click)="create()" >Add+</button> -->
+  <!-- {{employees |json}}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees.data;      
+      let i = index;
+      let o = odd;
+      let e = even;" class="bg-info gap-3"
+      [ngClass]="{'bg-light':e}"     
+      [ngStyle]="{'color':o ? 'blue':'black'}">
+    
+      <td> {{employee.id}}</td>
+      <td> {{employee.firstName}}</td>
+      <td> {{employee.lastName}}</td>
+      <td> {{employee.salary}}</td>
+      <td> 
+       
+        <button class="btn btn-primary" (click)="onView(employee.id)">view</button>&nbsp;
+        <button class="btn btn-danger" (click)="employees.delete(employee.id)">Delete</button>&nbsp;
+        <button class="btn btn-warning text-light" (click)="onUpdate(employee)">Update</button> 
+      </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <!-- <button (click)="findall()">Find All</button><span>
+  <button (click)="employees.findOne(2)">Find One</button> -->
+ 
+  <div class="container">
+    <!-- <input [(ngModel)]="appRootString"> -->
+    <!-- <p>{{appRootString}}</p> -->
+    <!-- <p>{{childComponent?.text}}</p> -->
+    <!-- <p>{{childData}}</p> -->
+  <!-- <app-employee-list [data]="appRootString"
+                  (notify)="reciveFromChild($event)"></app-employee-list> -->
+                  <!-- <button (click)="displayChildInformation()">Get From child 2</button>
+                  <p>{{myChildData}}</p> -->
+  </div>
+  <nav class="container text-center bg-info p-2">
+    <a routerLink="/home" routerLinkActive="active">Home</a> &nbsp; | &nbsp;
+    <a routerLink="/employees" routerLinkActive="active">Employees</a> &nbsp; | &nbsp;
+    <a routerLink="/about" routerLinkActive="active">About</a> 
+    </nav>
+    <br/>
+  <div class="container ">
+    <!-- <app-employee-list ></app-employee-list>    bg-info -->
+    <router-outlet></router-outlet>
+  </div>
+<!-- <router-outlet></router-outlet> -->

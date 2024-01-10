@@ -1,0 +1,36 @@
+<div class="my-modal ">
+    <div class="container w-75 my-modal-content ">
+    <h4 class="text-center text-success"> Enter Employee Information</h4>
+  <form (ngSubmit)="onSubmit(f)"#f="ngForm">
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input class="form-control" type="text" id="id" name="id" ngModel disabled>
+    </div >
+    <div class="form-group">
+        <label for="fn">First Name</label>
+        <input class="form-control" type="text" id="fn" name="firstName" ngModel required minlength="4" #fn="ngModel">
+        <div class="text-danger" *ngIf="fn.errors && fn.touched">
+            <span *ngIf="fn.errors['required']">First name is requiren</span>
+            <span *ngIf="fn.errors['minlength']">First name is too short</span>
+        </div>
+    </div >
+    <div class="form-group">
+        <label for="ln">Last Name</label>
+        <input class="form-control" type="text" id="ln" name="lastName" ngModel required maxlength="5" #ln="ngModel">
+        <div class="text-danger" *ngIf="ln.errors && ln.touched">
+            <span *ngIf="ln.errors['required']">Last name is requiren</span>
+            <span *ngIf="ln.errors['maxlength']">Last name is too long</span>
+        </div>
+    </div >
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input class="form-control" type="number" id="salary" name="salary" ngModel required>
+    </div >
+    <br/>
+    <div class="form-group">
+        <button class="btn btn-primary w-50" type="submit" [disabled]="f.invalid">submit</button>
+        <button class="btn btn-success w-50" routerLink="/employees">Cancel</button>
+    </div>
+  </form>
+</div>
+</div>
